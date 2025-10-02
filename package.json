@@ -2,6 +2,7 @@
   "name": "panaderiabackend",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js"
@@ -9,5 +10,8 @@
   "keywords": [],
   "author": "Cristian Diaz",
   "license": "ISC",
-  "description": "Backend panaderia croissant"
+  "description": "Backend panaderia croissant",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
