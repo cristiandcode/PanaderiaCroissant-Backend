@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import './src/database/database.js';
+
 // 1- Configurar un puerto
 const app = express();
 //crear una variable de entorno
