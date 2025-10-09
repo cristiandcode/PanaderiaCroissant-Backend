@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import './src/database/database.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import productoRouter from './src/routes/producto.routes.js';
 
 // 1- Configurar un puerto
 const app = express();
@@ -30,13 +31,14 @@ app.use(express.static(path.join(__dirname, '/public')))
 // 3- Crear las rutas
 //Empezaremos a crear las rutas y comenzamos con GET
 //http://localhost:4001/prueba
-app.get('/prueba', (req, res)=>{
-    console.log('Prueba de solicitud GET')
-    //Enviar respuesta
-    res.send('Desde mi backend de Panaderia Croissant')
+// app.get('/prueba', (req, res)=>{
+//     console.log('Prueba de solicitud GET')
+//     //Enviar respuesta
+//     res.send('Desde mi backend de Panaderia Croissant')
 
-})
+// })
 
+app.use('/api', productoRouter)
 
 
 
