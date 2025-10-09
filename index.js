@@ -4,7 +4,7 @@ import morgan from 'morgan';
 import './src/database/database.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import productoRouter from './src/routes/producto.routes.js';
+import productoRouter from './src/routes/productos.routes.js';
 
 // 1- Configurar un puerto
 const app = express();
