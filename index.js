@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import './src/database/database.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // 1- Configurar un puerto
 const app = express();
@@ -19,6 +21,11 @@ app.use(express.urlencoded({extended:true})); //y que pueda acceder a los datos 
 //Configurar archivos estaticos
 //Que mi backend entienda JSON y que pueda acceder a los datos del body del request
 
+// Obtiene la ruta del archivo y su carpeta
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename) 
+// Sirve archivos estáticos (imágenes, CSS, JS) desde 'public'
+app.use(express.static(path.join(__dirname, '/public')))
 
 // 3- Crear las rutas
 //Empezaremos a crear las rutas y comenzamos con GET
