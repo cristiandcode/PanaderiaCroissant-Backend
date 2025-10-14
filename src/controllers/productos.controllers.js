@@ -46,3 +46,23 @@ export const crearProducto = async (req, res) => {
     res.status(500).json({ mensaje: "Error al crear el producto" });
   }
 };
+
+export const editarProducto = async (req, res) => {
+  try {
+    //Extraer el id del body
+    //Validamos los datos del body
+    //Pedimos a  la bd editar el producto
+      const productoBuscado = await Producto.findById(req.params.id);
+    //Quiero saber si productoBuscado es null
+    if(!productoBuscado){
+     return  res.status(400).json({mensaje: `El producto con id: ${req.params.id} no existe`})
+    }
+   const productoEditado = await Producto.findByIdAndUpdate(req.params.id, req.body, {new: true});
+   console.log(productoEditado)
+    //Responder al frontend con un codigo exitoso
+    res.status(200).json({mensaje: "Producto editado con exito"})
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ mensaje: "Error al crear el producto" });
+  }
+};
