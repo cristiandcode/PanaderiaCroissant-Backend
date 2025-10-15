@@ -58,7 +58,6 @@ export const editarProducto = async (req, res) => {
      return  res.status(400).json({mensaje: `El producto con id: ${req.params.id} no existe`})
     }
    const productoEditado = await Producto.findByIdAndUpdate(req.params.id, req.body, {new: true});
-   console.log(productoEditado)
     //Responder al frontend con un codigo exitoso
     res.status(200).json({mensaje: "Producto editado con exito"})
   } catch (error) {
