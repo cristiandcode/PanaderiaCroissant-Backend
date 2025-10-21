@@ -33,13 +33,6 @@ export const obtenerProducto = async (req, res) => {
 
 export const crearProducto = async (req, res) => {
   try {
-    //Validar los datos del producto del body
-    const errors = validationResult(req);
-    //Quiero saber si hay errores, usaremos isEmpty()
-    if(!errors.isEmpty()){
-      return res.status(400).json({errores: errors.array()})
-    }
-
     //Le pedimos a la BD crear el producto
     const productoNuevo = new Producto(req.body);
     await productoNuevo.save(); //Aqui se guarda en la bd
